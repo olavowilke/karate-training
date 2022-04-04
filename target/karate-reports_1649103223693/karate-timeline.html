@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/tests\/Post[1:10]","start":1649103085103,"end":1649103085370,"title":"src\/test\/java\/tests\/Post[1:10] 17:11:25.103-17:11:25.370 Post Demo 1","className":"failed"},{"id":2,"group":1,"content":"src\/test\/java\/tests\/Post[2:18]","start":1649103085388,"end":1649103085397,"title":"src\/test\/java\/tests\/Post[2:18] 17:11:25.388-17:11:25.397 Post Demo 2","className":"failed"},{"id":3,"group":1,"content":"src\/test\/java\/tests\/Post[3:26]","start":1649103085437,"end":1649103085457,"title":"src\/test\/java\/tests\/Post[3:26] 17:11:25.437-17:11:25.457 Post Demo 3","className":"failed"},{"id":4,"group":1,"content":"src\/test\/java\/tests\/Post[4:34]","start":1649103085473,"end":1649103085483,"title":"src\/test\/java\/tests\/Post[4:34] 17:11:25.473-17:11:25.483 Post Demo 4","className":"failed"},{"id":5,"group":1,"content":"src\/test\/java\/tests\/Post[5:42]","start":1649103085488,"end":1649103085492,"title":"src\/test\/java\/tests\/Post[5:42] 17:11:25.488-17:11:25.492 Post Demo 5","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
